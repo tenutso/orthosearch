@@ -12,7 +12,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         
-        <div class="col-md-6 valign"><img height="40" src="/img/oao-horizontal-65.jpg" /></div>
+        <div class="col-md-6 valign"><img height="40" src="img/oao-horizontal-65.jpg" /></div>
         <div class="col-md-6 text-right valign"><a href="http://www.oao.on.ca/">OAO Home</a></div>
         
     </div>
@@ -34,7 +34,7 @@
                         <div class="form-group">
 
                             <input type="text" ng-model="SearchCtrl.address" placeholder="Street Address, City, Zip/Postal Code" uib-typeahead="item as item.display for item in SearchCtrl.getLocation($viewValue)" typeahead-popup-template-url="/bower_components/ui-bootstrap/template/typeahead/typeahead-popup.html"
-                            typeahead-template-url="/bower_components/ui-bootstrap/template/typeahead/typeahead-match.html" typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults" typeahead-focus-first="true" typeahead-select-on-blur="true"
+                            typeahead-template-url="bower_components/ui-bootstrap/template/typeahead/typeahead-match.html" typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults" typeahead-focus-first="true" typeahead-select-on-blur="true"
                             typeahead-on-select="SearchCtrl.getSelectedLocation(SearchCtrl.address)" class="form-control">
                             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                             <div ng-show="noLocationResults">
