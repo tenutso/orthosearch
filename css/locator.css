@@ -1,0 +1,270 @@
+#locatorContainer {
+	background: #005696;
+	color:#ffffff;
+	float:left;
+	width:55%;
+	height:310px;
+	padding:10px;
+	box-sizing:border-box;
+}
+
+#locatorContent {
+
+	width:90%;
+	margin:auto;
+
+}
+
+#locatorHead img {
+	float:left;
+	height:4.2em;
+	margin:25px 9px 15px 0;
+}
+
+
+h1.locator {
+	color:#ffffff;
+	text-transform:uppercase;
+	font-size:1.8em;
+	font-weight:400;
+	margin-top:0px;
+	padding-top:10px;
+	margin-bottom:5px;
+}
+
+#locatorForm input.field, #locatorForm input.button {
+	border:2px solid #ffffff;
+	padding:5px;
+	width:100%;
+	display:block;
+	background:transparent;
+	margin-bottom:10px;
+	height:2em;
+}
+
+img.icon {
+	height:2em;
+	float:left;
+	margin:0 25px 0 22px;
+}
+
+#locatorForm {
+	clear:both;
+}
+
+#locatorForm input.button {
+	width:100%;
+	background-color: #ffffff;
+	color:#004384;
+	padding:5px;
+	border:none;
+	margin-bottom:10px;
+	font:normal 1.2em 'Franklin Gothic Book Condensed', sans-serif;
+	text-transform:uppercase;
+}
+
+.locator-links {
+	text-align:center;
+	margin:auto;
+	position:relative;
+}
+
+.locator-links a {
+	margin-right:15px;
+	padding-right:15px;
+	color:#ffffff;
+	border-right:2px solid #ffffff;	
+}
+
+.locator-links a:last-child {
+	margin-right:0;
+	border-right:none;
+}
+
+.help-popup {
+	display:none;
+	position:absolute;
+	top:-250px;
+	height:235px;
+	z-index:100;
+	border-radius:6;
+	background-color:#efefef;
+	position: absolute;
+	width: 276px;
+	padding: 1px;
+	text-align: left;
+	white-space: normal;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 6px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	color:#3f3f3f;
+}
+
+#find-link {
+	left:39%;
+}
+
+#help-link {
+	left:21%;
+}
+
+.help-popup > .arrow {
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 13px solid #fff;
+	padding: 0;
+	position: absolute;
+	bottom: -13px;
+	left: 50%;
+	margin-left: -13px;
+}
+
+.help-popup h4 {
+	color: #3f3f3f;
+	font-size: 18px;
+	padding: 8px 14px;
+	margin: 0;
+	font-weight: normal;
+	line-height: 18px;
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #ebebeb;
+	border-radius: 5px 5px 0 0;
+}
+
+.help-popup p, .help-popup div {
+	padding:0 14px 0 14px;
+	margin-bottom:5px;
+}
+
+.help-popup hr {
+	margin:10px 14px;
+}
+
+.help-popup input, .help-popup textarea {
+	width:100%;
+	border:3px solid #dfdfdf;
+}
+
+.help-popup button {
+	margin:0 14px 5px;
+	width:90%;
+	border:none;
+	color:#ffffff;
+	background-color:#005696;
+}
+
+#locatorFix {
+	position:fixed;
+	top:0;
+	right:0;
+	border-bottom-left-radius: 7px;
+	background-color:#ffffff;
+	border:1px solid #005696;
+	border-top:none;
+	border-right:none;
+	color:#005690;
+	padding-right:5px;
+	box-shadow:0px 0px 8px #dfdfdf;
+	display:none;
+	z-index:300;
+}
+
+#locatorFix:hover {
+	cursor:pointer;
+}
+
+#locatorFix i {
+	font-size:1.2em;
+	padding:6px;
+}
+
+@media screen and (max-width: 1100px) {
+	#locatorContent {
+		width:90%;
+	}
+
+	.locator-links a {
+		font-size:.9em;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	h1.locator {
+		font-size:1.5em;
+	}
+}
+
+@media screen and (max-width:800px) {
+
+	#locatorHead img {
+		margin-top:25px;
+	}
+
+	#locatorContent {
+		margin:1% auto;
+	}
+
+	h1.locator {
+		font-size:1.3em;
+	}
+
+	.locator-links a {
+		font-size:.8em;
+	}
+}
+
+@media screen and (max-width: 700px) {
+
+	h1.locator {
+		font-size:1.8em;
+	}
+
+	#locatorContainer {
+		float:none;
+		width:100%;
+		height:inherit;
+	} 
+
+	#locatorContent {
+		width:100%;
+	}
+
+	#locatorHead img {
+		margin: 25px 0 0 12px;
+	}
+
+	img.icon {
+		margin:0 10px 0 20px;
+	}
+
+
+	/*#locatorForm input.field, #locatorForm input.button, #locatorHead p, .locator-links {
+		width:80%;
+	}*/
+
+}
+
+@media screen and (max-width:400px) {
+
+	h1.locator {
+		font-size:1.5em;
+	}
+
+	#locatorContent {
+		margin: 1% auto;
+	}
+
+	#locatorHead img {
+		margin:25px 0 40px 0px;
+	}
+
+	img.icon {
+		margin:0 5px 0 15px;
+	}
+}

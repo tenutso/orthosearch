@@ -1,0 +1,55 @@
+/*
+body {
+	font: normal 16px Arial, sans-serif;
+	color: #637072;
+	line-height: 1.7em;
+}
+
+.form-control::-moz-placeholder {
+	color:#999;
+	opacity:1
+}
+.form-control:-ms-input-placeholder {
+	color:#999
+}
+.form-control::-webkit-input-placeholder {
+	color:#999
+}
+*/
+
+body {
+	padding-top:65px;
+}
+.container {
+    
+    
+    display:block;
+    margin: auto;
+    width: 1000px;
+}
+
+.search-results {
+    
+    
+    display:block;
+    margin: auto;
+    width: 676px;
+}
+
+.valign {
+	position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  /*border: 1px dashed deeppink;*/
+}
+
+.result-bar {
+	background:#bce8f1;
+	height: 30px;
+	font-size:16px;
+	padding:4px;
+	margin-bottom:10px;
+	
+	
+}
