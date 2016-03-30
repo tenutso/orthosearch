@@ -78,7 +78,7 @@ angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
                components: 'country:CA',
                //region:'ca',
                //address:'Ontario'
-               'key':'AIzaSyClJgbgurDmz0Jzojhap-05JkOBB2TgSv8'
+               //'key':'AIzaSyClJgbgurDmz0Jzojhap-05JkOBB2TgSv8'
 
             }
          }).then(function(response) {
@@ -154,6 +154,7 @@ angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
    
          if ('last_name' in urlParams) {
             params['last_name'] = urlParams.last_name;
+            //vm.last_name = urlParams.last_name;
          }
    
          if ('address' in urlParams && 'geolat' in urlParams && 'geolng' in urlParams) {
@@ -161,6 +162,7 @@ angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
             params['address']['geolat'] = urlParams.geolat;
             params['address']['geolng'] = urlParams.geolng;
             params['address']['display'] = urlParams.address;
+            //vm.address = urlParams.address;
          }
          
          vm.findByLocation(params);
