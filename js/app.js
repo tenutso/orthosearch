@@ -78,7 +78,7 @@ angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
                components: 'country:CA',
                //region:'ca',
                //address:'Ontario'
-               //'key':'AIzaSyClJgbgurDmz0Jzojhap-05JkOBB2TgSv8'
+               'key':'AIzaSyClJgbgurDmz0Jzojhap-05JkOBB2TgSv8'
 
             }
          }).then(function(response) {
