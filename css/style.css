@@ -21,11 +21,12 @@ body {
 	padding-top:65px;
 }
 .container {
-    
+    /*
     
     display:block;
     margin: auto;
     width: 1000px;
+    */
 }
 
 .search-results {
@@ -51,5 +52,10 @@ body {
 	padding:4px;
 	margin-bottom:10px;
 	
+	
+}
+
+.search-heading {
+	margin-top:3px;
 	
 }
