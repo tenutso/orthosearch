@@ -55,7 +55,7 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
 
             }),
             function(error) {
-               console.log(error);
+               //console.log(error);
             };
          return deferred.promise;
       };
@@ -90,7 +90,7 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
 
       vm.findByLocation = function(model) {
 
-         console.log(model);
+         //console.log(model);
          var location = {};
          vm.noSearchResults = false;
 
@@ -132,16 +132,16 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
             vm.totalItems = vm.contactDetails.length;
             vm.currentPage=1;
             vm.itemsPerPage=10;
-            console.log(vm.contactDetails);
+            //console.log(vm.contactDetails);
          });
       };
 
       vm.pageChanged = function(page) {
-         console.log(page);
+         //console.log(page);
       }
       
       // Handle URL params and simulate a form submission via URL GET params
-      console.log($location.search());
+      //console.log($location.search());
       var urlParams = $location.search();
 
       if ('last_name' in urlParams || 'address' in urlParams) {

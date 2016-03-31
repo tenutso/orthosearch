@@ -10,7 +10,7 @@ angular.module('orthosearch')
             
             return $http.get('https://www.oao.on.ca/searchapi.php', location)
                 .then(function(response) {
-                    console.log(response);
+                    //console.log(response);
                     
                     var data = response.data
                     return(data);
