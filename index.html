@@ -10,8 +10,6 @@
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="bootstrap/ui-bootstrap-custom-tpls-1.2.5.js"></script>
-    
-    
 </head>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -24,7 +22,7 @@
 
 
     <div class="container">
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div class="search-results">
@@ -35,9 +33,8 @@
 
                         <div class="form-group">
                             <!--<input class="form-control" g-places-autocomplete ng-model="SearchCtrl.place" placeholder="Street Address, City, Zip/Postal Code">-->
-                            <input type="text" ng-model="SearchCtrl.address" placeholder="Enter Postal Code or Address" uib-typeahead="item as item.display for item in SearchCtrl.getLocation($viewValue)" 
-                            typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults" typeahead-focus-first="true" typeahead-select-on-blur="true"
-                            typeahead-on-select="SearchCtrl.getSelectedLocation(SearchCtrl.address)" class="form-control">
+                            <input type="text" ng-model="SearchCtrl.address" placeholder="Enter Postal Code or Address" uib-typeahead="item as item.display for item in SearchCtrl.getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults"
+                            typeahead-focus-first="true" typeahead-select-on-blur="true" typeahead-on-select="SearchCtrl.getSelectedLocation(SearchCtrl.address)" class="form-control">
                             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                             <div ng-show="noLocationResults">
                                 <i class="glyphicon glyphicon-remove"></i> No Results Found
@@ -51,10 +48,13 @@
                             <input ng-disabled="!locationForm.$valid" class="btn btn-primary" value="Find an Orthodontist" ng-click="SearchCtrl.findByLocation(SearchCtrl)" type="submit">
                         </div>
                     </form>
-                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.address"><p>Showing results for: <i>{{SearchCtrl.address.display}}</i></p></div>
-                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name"><p>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></p></div>
-                    
-                    <div ng-repeat="item in SearchCtrl.contactDetails.slice(((SearchCtrl.currentPage-1)*10), SearchCtrl.currentPage*10)">
+                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.address">
+                        <p>Showing results for: <i>{{SearchCtrl.address.display}}</i></p>
+                    </div>
+                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name">
+                        <p>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></p>
+                    </div>
+                    <div ng-repeat="item in SearchCtrl.contactDetails.slice(((SearchCtrl.currentPage-1)*SearchCtrl.itemsPerPage), SearchCtrl.currentPage*SearchCtrl.itemsPerPage)">
                         <div class="row">
                             <div class="col-md-6">
                                 <strong>{{item.display_name}}</strong></br>
@@ -64,24 +64,23 @@
                                 </div>
                                 <div ng-show="website.value" ng-repeat="website in item.website"><a href="{{website.value}}" target="_blank">{{website.value}}</a></br>
                                 </div>
-
-                                
                             </div>
 
                             <div ng-show="SearchCtrl.address" class="col-md-6 text-right">
-                                <div><i>{{item.distance | number:1}} km</i><a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank"> &nbsp;<img width="24" height="24" src="img/map_marker.png" /></a>                                    </div>
-                                <div></div>
-                                <div><a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank">Map & Directions</a></div>
+                                <div>
+                                    <i>{{item.distance | number:1}} km</i>
+                                    <a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank"> &nbsp;<img width="24" height="24" src="img/map_marker.png" /></a>
+                                </div>
+                                <div>
+                                    <a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank">Map & Directions</a>
+                                </div>
                             </div>
 
                         </div>
                         <hr>
                     </div>
                     <div ng-show="SearchCtrl.noSearchResults">No results found</div>
-                    <uib-pagination 
-                    total-items="SearchCtrl.totalItems" 
-                    ng-model="SearchCtrl.currentPage" 
-                    ng-change="SearchCtrl.pageChanged()"></uib-pagination>
+                    <uib-pagination ng-show="SearchCtrl.totalItems > SearchCtrl.itemsPerPage" total-items="SearchCtrl.totalItems" ng-model="SearchCtrl.currentPage" ng-change="SearchCtrl.pageChanged()"></uib-pagination>
                 </div>
             </div>
         </div>

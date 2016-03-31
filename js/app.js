@@ -8,19 +8,10 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
       var vm = this;
       vm.model = {};
 
-      vm.addresses = {};
-      vm.memberships = {};
-      vm.newArray = [];
-
-
       vm.title = "Find an OAO Orthodontist";
 
       var civicrmApiKey = '24eIjWlpnu7PJsPQLXvEipkh';
       var civicrmSiteKey = '8c346c9561c7838143f3104e1e70ca09';
-
-
-
-
 
       vm.getMatches = function(query) {
          vm.address = '';
@@ -140,6 +131,7 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
             }
             vm.totalItems = vm.contactDetails.length;
             vm.currentPage=1;
+            vm.itemsPerPage=10;
             console.log(vm.contactDetails);
          });
       };
