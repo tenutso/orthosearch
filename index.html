@@ -3,15 +3,15 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link href="css/autocomplete.css" rel="stylesheet"></link>
-    <link href="bower_components/ui-bootstrap/src/typeahead/typeahead.css" rel="stylesheet"></link>
     <link href="css/style.css" rel="stylesheet"></link>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
     <script src="js/autocomplete.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
-    <script src="bower_components/ui-bootstrap/src/typeahead/typeahead.js"></script>
-    <script src="bower_components/ui-bootstrap/src/debounce/debounce.js"></script>
-    <script src="bower_components/ui-bootstrap/src/position/position.js"></script>
+    <script src="bootstrap/ui-bootstrap-custom-tpls-1.2.5.js"></script>
+    
+    
 </head>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -35,8 +35,8 @@
 
                         <div class="form-group">
                             <!--<input class="form-control" g-places-autocomplete ng-model="SearchCtrl.place" placeholder="Street Address, City, Zip/Postal Code">-->
-                            <input type="text" ng-model="SearchCtrl.address" placeholder="Enter Postal Code or Address" uib-typeahead="item as item.display for item in SearchCtrl.getLocation($viewValue)" typeahead-popup-template-url="bower_components/ui-bootstrap/template/typeahead/typeahead-popup.html"
-                            typeahead-template-url="bower_components/ui-bootstrap/template/typeahead/typeahead-match.html" typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults" typeahead-focus-first="true" typeahead-select-on-blur="true"
+                            <input type="text" ng-model="SearchCtrl.address" placeholder="Enter Postal Code or Address" uib-typeahead="item as item.display for item in SearchCtrl.getLocation($viewValue)" 
+                            typeahead-loading="loadingLocations" typeahead-no-results="noLocationResults" typeahead-focus-first="true" typeahead-select-on-blur="true"
                             typeahead-on-select="SearchCtrl.getSelectedLocation(SearchCtrl.address)" class="form-control">
                             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                             <div ng-show="noLocationResults">
@@ -54,7 +54,7 @@
                     <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.address"><p>Showing results for: <i>{{SearchCtrl.address.display}}</i></p></div>
                     <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name"><p>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></p></div>
                     
-                    <div ng-repeat="item in SearchCtrl.contactDetails">
+                    <div ng-repeat="item in SearchCtrl.contactDetails.slice(((SearchCtrl.currentPage-1)*10), SearchCtrl.currentPage*10)">
                         <div class="row">
                             <div class="col-md-6">
                                 <strong>{{item.display_name}}</strong></br>
@@ -78,6 +78,10 @@
                         <hr>
                     </div>
                     <div ng-show="SearchCtrl.noSearchResults">No results found</div>
+                    <uib-pagination 
+                    total-items="SearchCtrl.totalItems" 
+                    ng-model="SearchCtrl.currentPage" 
+                    ng-change="SearchCtrl.pageChanged()"></uib-pagination>
                 </div>
             </div>
         </div>

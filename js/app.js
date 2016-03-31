@@ -1,4 +1,4 @@
-angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
+angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
    .config(function($httpProvider) {
 
 
@@ -138,13 +138,17 @@ angular.module('orthosearch', ['google.places', 'ui.bootstrap.typeahead'])
             if (!vm.contactDetails.length) {
                vm.noSearchResults = true;
             }
+            vm.totalItems = vm.contactDetails.length;
+            vm.currentPage=1;
             console.log(vm.contactDetails);
          });
       };
 
+      vm.pageChanged = function(page) {
+         console.log(page);
+      }
       
-      
-      // Handle URL params and simulate a form submission
+      // Handle URL params and simulate a form submission via URL GET params
       console.log($location.search());
       var urlParams = $location.search();
 
