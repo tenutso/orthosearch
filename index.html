@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="row text-middle">
-        <div class="col-md-8 search-heading"><a href="http://www.oao.on.ca"><img height="40" src="img/oao-horizontal-65.jpg" /></a></div>
+        <div class="col-md-8 search-heading"><a href="http://www.oao.on.ca"><img class=".img-responsive" height="40" src="img/oao-horizontal-65.jpg" /></a></div>
         </div>
     </div>
 </nav>
@@ -32,10 +32,10 @@
         </ul>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
                 <div class="search-results">
                     <h1>{{SearchCtrl.title}}</h1>
-                    <p>To find OAO-member orthodontists near you, enter a postal code, address, and/or orthodontist's last name. </p>
+                    <p>To find OAO-member orthodontists near you, enter a postal code, address, and/or orthodontist's last name.</p>
 
                     <form id="locatorForm" name="locationForm">
 
@@ -56,11 +56,14 @@
                             <input ng-disabled="!locationForm.$valid" class="btn btn-primary" value="Find an Orthodontist" ng-click="SearchCtrl.findByLocation(SearchCtrl)" type="submit">
                         </div>
                     </form>
-                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.address">
-                        <p>Showing results for: <i>{{SearchCtrl.address.display}}</i></p>
+                    <div class="result-bar">
+                    <div class="result-bar-address" ng-show="SearchCtrl.contactDetails && SearchCtrl.address">
+                        <span>Showing results for: <i>{{SearchCtrl.address.display}}</i></span>
                     </div>
-                    <div class="result-bar" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name">
-                        <p>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></p>
+                    
+                    <div class="result-bar-address" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name">
+                        <span>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></span>
+                    </div>
                     </div>
                     <div ng-repeat="item in SearchCtrl.contactDetails.slice(((SearchCtrl.currentPage-1)*SearchCtrl.itemsPerPage), SearchCtrl.currentPage*SearchCtrl.itemsPerPage)">
                         <div class="row">
@@ -74,7 +77,7 @@
                                 </div>
                             </div>
 
-                            <div ng-show="SearchCtrl.address" class="col-md-6 text-right">
+                            <div ng-show="SearchCtrl.address" class="col-md-6 proximity">
                                 <div>
                                     <i>{{item.distance | number:1}} km</i>
                                     <a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank"> &nbsp;<img width="24" height="24" src="img/map_marker.png" /></a>
