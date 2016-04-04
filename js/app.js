@@ -90,9 +90,11 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
 
       vm.findByLocation = function(model) {
 
-         //console.log(model);
+         console.log(model);
          var location = {};
          vm.noSearchResults = false;
+         vm.showResultsForAddress = '';
+         vm.showResultsForName = '';
 
          // What happen if both form fields are empty
          if (!model.address && !model.last_name) {
@@ -112,6 +114,8 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
                   last_name: model.last_name
                }
             }
+            vm.showResultsForAddress = model.address.display;
+            vm.showResultsForName = model.last_name;
          }
          else {
             location = {
@@ -120,6 +124,7 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
                   last_name: model.last_name
                }
             }
+            vm.showResultsForName = model.last_name;
          }
 
 

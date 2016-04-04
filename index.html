@@ -57,13 +57,14 @@
                         </div>
                     </form>
                     <div class="result-bar">
-                    <div class="result-bar-address" ng-show="SearchCtrl.contactDetails && SearchCtrl.address">
-                        <span>Showing results for: <i>{{SearchCtrl.address.display}}</i></span>
+                    <div class="result-bar-address" ng-show="SearchCtrl.showResultsForAddress">
+                        <span>Showing results for: <i>{{SearchCtrl.showResultsForAddress}}</i></span>
                     </div>
                     
-                    <div class="result-bar-address" ng-show="SearchCtrl.contactDetails && SearchCtrl.last_name">
-                        <span>Showing results for: <i>Last name "{{SearchCtrl.last_name}}"</i></span>
+                    <div class="result-bar-address" ng-show="SearchCtrl.showResultsForName">
+                        <span>Showing results for: <i>Last name "{{SearchCtrl.showResultsForName}}"</i></span>
                     </div>
+                    
                     </div>
                     <div ng-repeat="item in SearchCtrl.contactDetails.slice(((SearchCtrl.currentPage-1)*SearchCtrl.itemsPerPage), SearchCtrl.currentPage*SearchCtrl.itemsPerPage)">
                         <div class="row">
@@ -77,7 +78,7 @@
                                 </div>
                             </div>
 
-                            <div ng-show="SearchCtrl.address" class="col-md-6 proximity">
+                            <div ng-show="SearchCtrl.showResultsForAddress" class="col-md-6 proximity">
                                 <div>
                                     <i>{{item.distance | number:1}} km</i>
                                     <a href="https://maps.google.com/?q={{item.street_address}},{{item.city}},{{item.province}},{{item.postal_code}}" target="_blank"> &nbsp;<img width="24" height="24" src="img/map_marker.png" /></a>
