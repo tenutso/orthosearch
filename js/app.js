@@ -90,11 +90,12 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
 
       vm.findByLocation = function(model) {
 
-         console.log(model);
+         //console.log(model);
          var location = {};
          vm.noSearchResults = false;
          vm.showResultsForAddress = '';
          vm.showResultsForName = '';
+         vm.totalItems = 0;
 
          // What happen if both form fields are empty
          if (!model.address && !model.last_name) {
