@@ -158,7 +158,7 @@ angular.module('orthosearch', ['ngAnimate', 'google.places', 'ui.bootstrap'])
             params['address']['geolat'] = urlParams.geolat;
             params['address']['geolng'] = urlParams.geolng;
             params['address']['display'] = urlParams.address;
-            //vm.address = urlParams.address;
+            vm.address = urlParams.address;
          }
          
          vm.findByLocation(params);
